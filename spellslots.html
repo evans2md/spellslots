@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+    
+<html>
+    
+    <head>
+        <title>Spell Slots</title>
+        <link rel="stylesheet" href="./spellslots.css">
+        <link href="https://fonts.googleapis.com/css?family=Hanalei+Fill" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Passion+One:900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
+        
+    </head>
+    
+    <body>
+            <header>
+            </header>
+    
+            <main>
+                
+                <div class='content'>
+                    <h1 class='unselectable'>Health</h1>
+                    <div id=maxHpWrap>
+                        Max Hp: <input type='text' name='maxHp' id='maxHp' maxlength='3' size='2'><strong id='setHp' class='unselectable'>Set</strong><br><br>
+                    </div>
+                    Current Hp: <strong id='curHpTxt'>???</strong> / <strong id='totHpTxt'>???</strong><br><br>
+                    <div class='wrapper'>
+                        <div id='totHp' class='unselectable'>&nbsp;</div>
+                        <div id='curHp' class='unselectable'>&nbsp;</div><br>
+                    </div>
+                    <br>
+                    Hp Change:
+                    <strong id='minusHp' class='unselectable hpBut'>-</strong><input type='text' name='hpChange' id='hpChange' maxlength='3' size='4'><strong id='addHp' class='unselectable hpBut'>+</strong>
+                </div>
+                
+                <div class='content'>
+                    <h1 class='unselectable'>Spell Slots</h1>
+                    <table id='mainTable' class='unselectable'>
+                        <tr>
+                            <td>level 1</td>
+                            <td>level 2</td>
+                            <td>level 3</td>
+                            <td>level 4</td>
+                            <td>level 5</td>
+                            <td>level 6</td>
+                            <td>level 7</td>
+                            <td>level 8</td>
+                            <td>level 9</td>
+                        </tr>
+                
+                        <tr>
+                            <td id='l1s0' class='l1 slot unselectable'>&nbsp;</td>
+                            <td id='l2s0' class='l2 slot unselectable'>&nbsp;</td>
+                            <td id='l3s0' class='l3 slot unselectable'>&nbsp;</td>
+                            <td id='l4s0' class='l4 slot unselectable'>&nbsp;</td>
+                            <td id='l5s0' class='l5 slot unselectable'>&nbsp;</td>
+                            <td id='l6s0' class='l6 slot unselectable'>&nbsp;</td>
+                            <td id='l7s0' class='l7 slot unselectable'>&nbsp;</td>
+                            <td id='l8s0' class='l8 slot unselectable'>&nbsp;</td>
+                            <td id='l9s0' class='l9 slot unselectable'>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td id='l1s1' class='l1 slot unselectable'>&nbsp;</td>
+                            <td id='l2s1' class='l2 slot unselectable'>&nbsp;</td>
+                            <td id='l3s1' class='l3 slot unselectable'>&nbsp;</td>
+                            <td id='l4s1' class='l4 slot unselectable'>&nbsp;</td>
+                            <td id='l5s1' class='l5 slot unselectable'>&nbsp;</td>
+                            <td id='l6s1' class='l6 slot unselectable'>&nbsp;</td>
+                            <td id='l7s1' class='l7 slot unselectable'>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td id='l1s2' class='l1 slot unselectable'>&nbsp;</td>
+                            <td id='l2s2' class='l2 slot unselectable'>&nbsp;</td>
+                            <td id='l3s2' class='l3 slot unselectable'>&nbsp;</td>
+                            <td id='l4s2' class='l4 slot unselectable'>&nbsp;</td>
+                            <td id='l5s2' class='l5 slot unselectable'>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td id='l1s3' class='l1 slot unselectable'>&nbsp;</td>
+                        </tr>
+            
+                
+                    </table>
+                
+                    <p id='resetB' class='unselectable'>Reset</p>
+                </div>
+            </main>
+            
+
+    </body>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+
+    <script>
+        function checkSlots(){
+            if (typeof localStorage.l1 !== 'undefined'){
+                for (i=0;i<localStorage.l1;i++){
+                    document.getElementById('l1s'+i).style.backgroundColor = 'rgb(196, 47, 47)';
+                }
+            }
+            if (typeof localStorage.l2 !== 'undefined'){
+                for (i=0;i<localStorage.l2;i++){
+                    document.getElementById('l2s'+i).style.backgroundColor = 'rgb(196, 47, 47)';
+                }
+            }
+            if (typeof localStorage.l3 !== 'undefined'){
+                for (i=0;i<localStorage.l3;i++){
+                    document.getElementById('l3s'+i).style.backgroundColor = 'rgb(196, 47, 47)';
+                }
+            }
+            if (typeof localStorage.l4 !== 'undefined'){
+                for (i=0;i<localStorage.l4;i++){
+                    document.getElementById('l4s'+i).style.backgroundColor = 'rgb(196, 47, 47)';
+                }
+            }
+            if (typeof localStorage.l5 !== 'undefined'){
+                for (i=0;i<localStorage.l5;i++){
+                    document.getElementById('l5s'+i).style.backgroundColor = 'rgb(196, 47, 47)';
+                }
+            }
+            if (typeof localStorage.l6 !== 'undefined'){
+                for (i=0;i<localStorage.l6;i++){
+                    document.getElementById('l6s'+i).style.backgroundColor = 'rgb(196, 47, 47)';
+                }
+            }
+            if (typeof localStorage.l7 !== 'undefined'){
+                for (i=0;i<localStorage.l7;i++){
+                    document.getElementById('l7s'+i).style.backgroundColor = 'rgb(196, 47, 47)';
+                }
+            }
+            if (typeof localStorage.l8 !== 'undefined'){
+                for (i=0;i<localStorage.l8;i++){
+                    document.getElementById('l8s'+i).style.backgroundColor = 'rgb(196, 47, 47)';
+                }
+            }
+            if (typeof localStorage.l9 !== 'undefined'){
+                for (i=0;i<localStorage.l9;i++){
+                    document.getElementById('l9s'+i).style.backgroundColor = 'rgb(196, 47, 47)';
+                }
+            }
+        }
+        
+        
+        function setHealth(hp) {
+            curHp = hp;
+            maxHp = hp;
+            localStorage.curHp=hp;
+            localStorage.maxHp=hp;
+            
+            $('#totHpTxt').text(hp);
+            $('#curHpTxt').text(hp);
+            $('#maxHp').val('');
+            $('#curHp').css('width',(curHp/maxHp)*500);
+        }
+        
+        function updateHp(hp,op){
+            if (op=='-') {
+                curHp -= hp;
+            } else {
+                curHp += Number(hp);
+            }
+            localStorage.curHp=curHp;
+            $('#curHpTxt').text(curHp);
+            
+            $('#curHp').css('width',(curHp/maxHp)*500);
+        }
+        
+        document.onload = checkSlots();
+        
+        $('#maxHpDiv').hover(function(){
+            $('#maxHpDiv').fadeIn('slow',function(){});
+        });
+        
+        curHp = localStorage.curHp; if (isNaN(curHp)){curHp=1;}
+        maxHp = localStorage.maxHp; if (isNaN(maxHp)){maxHp=1;}
+        $('#curHp').css('width',(curHp/maxHp)*500);
+        if (curHp!=1){
+            $('#totHpTxt').text(maxHp);
+            $('#curHpTxt').text(curHp);
+            }
+        
+        $('#setHp').click(function(){
+            setHealth(Number($('#maxHp').val()));
+        });
+        
+        $('.hpBut').click(function(){
+            console.log(this.id);
+            updateHp(Number($('#hpChange').val()),$('#'+this.id).text());
+            
+        });
+        
+        l1 = localStorage.l1; if (isNaN(l1)){l1=0;}
+        l2 = localStorage.l2; if (isNaN(l2)){l2=0;}
+        l3 = localStorage.l3; if (isNaN(l3)){l3=0;}
+        l4 = localStorage.l4; if (isNaN(l4)){l4=0;}
+        l5 = localStorage.l5; if (isNaN(l5)){l5=0;}
+        l6 = localStorage.l6; if (isNaN(l6)){l6=0;}
+        l7 = localStorage.l7; if (isNaN(l7)){l7=0;}
+        l8 = localStorage.l8; if (isNaN(l8)){l8=0;}
+        l9 = localStorage.l9; if (isNaN(l9)){l9=0;}
+        
+        $('#resetB').click(function(){
+            localStorage.l1 = 0;l1=0;
+            localStorage.l2 = 0;l2=0;
+            localStorage.l3 = 0;l3=0;
+            localStorage.l4 = 0;l4=0;
+            localStorage.l5 = 0;l5=0;
+            localStorage.l6 = 0;l6=0;
+            localStorage.l7 = 0;l7=0;
+            localStorage.l8 = 0;l8=0;
+            localStorage.l9 = 0;l9=0;
+            $('.slot').css('background-color','rgba(255, 255, 255, 0.2');
+        });
+        
+            
+        [].forEach.call(document.getElementsByClassName('slot'), function(item) { 
+        item.addEventListener('click', function() {
+            if (item.style.backgroundColor == 'rgb(196, 47, 47)'){    
+                item.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                if (item.id.substring(0,2) == 'l1'){--l1;localStorage.l1 = l1;}
+                if (item.id.substring(0,2) == 'l2'){--l2;localStorage.l2 = l2;}
+                if (item.id.substring(0,2) == 'l3'){--l3;localStorage.l3 = l3;}
+                if (item.id.substring(0,2) == 'l4'){--l4;localStorage.l4 = l4;}
+                if (item.id.substring(0,2) == 'l5'){--l5;localStorage.l5 = l5;}
+                if (item.id.substring(0,2) == 'l6'){--l6;localStorage.l6 = l6;}
+                if (item.id.substring(0,2) == 'l7'){--l7;localStorage.l7 = l7;}
+                if (item.id.substring(0,2) == 'l8'){--l8;localStorage.l8 = l8;}
+                if (item.id.substring(0,2) == 'l9'){--l9;localStorage.l9 = l9;}
+            } else {
+                item.style.backgroundColor = 'rgb(196, 47, 47)';
+                if (item.id.substring(0,2) == 'l1'){++l1;localStorage.l1 = l1;}
+                if (item.id.substring(0,2) == 'l2'){++l2;localStorage.l2 = l2;}
+                if (item.id.substring(0,2) == 'l3'){++l3;localStorage.l3 = l3;}
+                if (item.id.substring(0,2) == 'l4'){++l4;localStorage.l4 = l4;}
+                if (item.id.substring(0,2) == 'l5'){++l5;localStorage.l5 = l5;}
+                if (item.id.substring(0,2) == 'l6'){++l6;localStorage.l6 = l6;}
+                if (item.id.substring(0,2) == 'l7'){++l7;localStorage.l7 = l7;}
+                if (item.id.substring(0,2) == 'l8'){++l8;localStorage.l8 = l8;}
+                if (item.id.substring(0,2) == 'l9'){++l9;localStorage.l9 = l9;}
+                }
+            }, false);
+        });
+        
+        </script>
+    
+</html>
